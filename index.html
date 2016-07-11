@@ -11,61 +11,7 @@
 				<h3>
 					<product-title></product-title>
 				</h3>
-				<section ng-controller="PanelController as panel">
-					<ul class="nav nav-pills">
-						<li ng-class="{ active:panel.isSelected(1)}"><a href ng-click="panel.selectTab(1)">Description</a></li>
-						<li ng-class="{ active:panel.isSelected(2)}"><a href ng-click="panel.selectTab(2)">Specification</a></li>
-						<li ng-class="{ active:panel.isSelected(3)}"><a href ng-click="panel.selectTab(3)">Review</a></li>
-					</ul>
-					<div class="panel" ng-show="panel.isSelected(1)">
-						<h4>Description</h4>
-						<p>{{product.description}}</p>
-					</div>
-					<div class="panel" ng-show="panel.isSelected(2)">
-						<h4>Spesification</h4>
-						<p>Not yet</p>
-					</div>
-					<div class="panel" ng-show="panel.isSelected(3)">
-						<h4>Review</h4>
-						<blockquote ng-repeat="review in product.reviews">
-							<b>{{review.stars}} Stars</b>
-							{{review.body}}
-							<br>
-							<cite><b>-</b> {{review.author}}</cite>
-						</blockquote>
-						<div class="row">
-							<div class="col-md-4">
-								<form name="reviewForm" ng-controller="ReviewController as reviewCtrl" ng-submit="reviewForm.$valid && reviewCtrl.addReview(product)" novalidate>
-									<blockquote>
-										<b>{{reviewCtrl.review.stars}} Stars</b>
-										{{reviewCtrl.review.body}}
-										<br>
-										<cite><b>-</b> {{reviewCtrl.review.author}}</cite>
-									</blockquote>
-									<div class="form-group">
-										<label for="stars">Stars</label>
-										<select ng-model="reviewCtrl.review.stars" id="stars" class="form-control" required>
-											<option value="5">5 stars</option>
-											<option value="4">4 stars</option>
-											<option value="3">3 stars</option>
-											<option value="2">2 stars</option>
-											<option value="1">1 star</option>
-										</select>
-									</div>
-									<div class="form-group">
-										<label for="body">Comments</label>
-										<textarea ng-model="reviewCtrl.review.body" class="form-control" required></textarea>	
-									</div>
-									<div class="form-group">
-										<label>by:</label>
-										<input type="email" ng-model="reviewCtrl.review.author" class="form-control" required/>
-									</div>
-									<input type="submit" value="Submit" />
-								</form>
-							</div>
-						</div>
-					</div>
-				</section>
+				<product-panels></product-panels>
 			</li>
 		</ul>
 	</div>
