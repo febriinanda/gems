@@ -9,8 +9,7 @@
 		<ul class="list-group">
 			<li class="list-group-item" ng-repeat="product in store.products">
 				<h3>
-					{{product.name}}
-					<em class="pull-right">{{product.price | currency}}</em>
+					<product-title></product-title>
 				</h3>
 				<section ng-controller="PanelController as panel">
 					<ul class="nav nav-pills">
@@ -34,7 +33,6 @@
 							<br>
 							<cite><b>-</b> {{review.author}}</cite>
 						</blockquote>
-
 						<div class="row">
 							<div class="col-md-4">
 								<form name="reviewForm" ng-controller="ReviewController as reviewCtrl" ng-submit="reviewForm.$valid && reviewCtrl.addReview(product)" novalidate>
